@@ -6,8 +6,10 @@ import yfinance as yf
 import json
 import os
 from django.conf import settings
+from rest_framework.throttling import AnonRateThrottle, UserRateThrottle
 
 class CompanyInfoView(APIView):
+    throttle_classes = [AnonRateThrottle, UserRateThrottle]
 
     def load_company_symbols(self):
         with open(os.path.join(settings.BASE_DIR, 'company_symbols.json')) as f:
@@ -39,7 +41,7 @@ class CompanyInfoView(APIView):
             }
 
             return self.generate_response(success=True, message="Company information retrieved successfully", data=response_data, status_code=status.HTTP_200_OK)
-
+        
         except Exception as e:
             return self.generate_response(success=False, message=str(e), data=None, status_code=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
