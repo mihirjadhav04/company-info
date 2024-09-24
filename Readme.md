@@ -1,7 +1,3 @@
-Here's a sample README file for your project:
-
----
-
 # Company Information API
 
 ## Overview
@@ -18,7 +14,7 @@ The Company Information API is a Django-based web service designed to retrieve c
 ## Technologies Used
 
 - **Backend Framework**: Django REST Framework
-- **Data Fetching Libraries**: `requests`, `yfinance`
+- **Data Fetching Libraries**: `requests`
 - **Environment Management**: `dotenv` for managing API keys and environment variables
 - **APIs Used**: 
   - Yahoo Finance API (via yfinance)
@@ -52,7 +48,6 @@ The Company Information API is a Django-based web service designed to retrieve c
    Create a `.env` file in the project root and add your API keys:
    ```
    NEWS_API_KEY=<your_news_api_key>
-   ALPHA_VANTAGE_API_KEY=<your_alpha_vantage_api_key>
    ```
 
 4. **Run Migrations** (if any):
@@ -104,9 +99,3 @@ The API handles various errors, including:
 - Implement caching for improved performance.
 - Add more data sources for enhanced information retrieval.
 - User authentication and authorization for access control.
-
-## License
-
-This project is licensed under the MIT License.
-
----
