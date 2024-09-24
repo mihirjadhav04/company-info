@@ -32,7 +32,7 @@ class CompanyInfoView(APIView):
 
         except Exception as e:
             return self.generate_response(success=False, message=str(e), data=None, status_code=status.HTTP_500_INTERNAL_SERVER_ERROR)
-        
+    
     def get_financial_info(self, company_name):
         # Placeholder for financial data fetch (replace with actual API calls)
         return {
