@@ -2,7 +2,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 import requests  
-import os
+from django.conf import settings
+
 
 class CompanyInfoView(APIView):
     def post(self, request, *args, **kwargs):
@@ -47,11 +48,24 @@ class CompanyInfoView(APIView):
         }
 
     def get_news_info(self, company_name):
-        # Placeholder for recent news fetch (replace with actual API calls)
-        return [
-            {"title": "Company A expands operations", "date": "2023-09-01"},
-            {"title": "New CEO appointed at Company A", "date": "2023-08-20"}
-        ]
+        api_key = settings.NEWS_API_KEY  # Access the API key from settings
+
+        if not api_key:
+            return {"error": "API key not found"}
+
+        # Reliable Indian news domains
+        reliable_domains = "thehindu.com,indiatimes.com,ndtv.com,indianexpress.com,hindustantimes.com,livemint.com,business-standard.com,economictimes.indiatimes.com,news18.com,scroll.in"
+
+        url = f'https://newsapi.org/v2/everything?q={company_name}&domains={reliable_domains}&apiKey={api_key}'
+        response = requests.get(url)
+
+        if response.status_code == 200:
+            articles = response.json().get('articles', [])
+            # Filter by recent news (sorted by published date)
+            recent_news = sorted(articles, key=lambda x: x['publishedAt'], reverse=True)[:5]  # Get top 5 recent news
+            return recent_news
+        else:
+            return {"error": "News data not available"}
 
     def generate_response(self, success, message, data, status_code):
         """

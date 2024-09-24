@@ -10,6 +10,16 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+# settings.py
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Now you can access the NEWS_API_KEY in your views or other files
+NEWS_API_KEY = os.getenv('NEWS_API_KEY')
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
