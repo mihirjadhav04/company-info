@@ -2,14 +2,14 @@
 
 ## Overview
 
-The Company Information API is a Django-based web service designed to retrieve consolidated information about companies. By accepting a company name as input, the API provides financial data, legal information, and recent news updates from reliable sources. This project leverages various external APIs, including Yahoo Finance, NewsAPI, and others, to gather comprehensive data dynamically.
+The Company Information API is a Django-based web service designed to retrieve consolidated information about Nifty 50 companies. By accepting a company name as input, the API provides financial data, legal information, and recent news updates from reliable sources. This project leverages various external APIs, including Yahoo Finance, NewsAPI, and others, to gather comprehensive data dynamically.
 
 ## Features
 
-- **Fetch Financial Data**: Retrieve detailed financial information for Indian companies using their stock symbols.
+- **Fetch Financial Data**: Retrieve detailed financial information for Nifty 50 companies using their stock symbols.
 - **Legal Information**: Get insights into any legal issues related to the company.
 - **Recent News**: Access the latest news articles about the company from reliable Indian news sources.
-- **Dynamic Symbol Retrieval**: Dynamically fetch stock symbols for any listed company in India.
+- **Dynamic Symbol Retrieval**: Dynamically fetch stock symbols for any listed company in the Nifty 50 index.
 
 ## Technologies Used
 
@@ -46,7 +46,7 @@ The Company Information API is a Django-based web service designed to retrieve c
 
 3. **Set Up Environment Variables**:
    Create a `.env` file in the project root and add your API keys:
-   ```
+   ```env
    NEWS_API_KEY=<your_news_api_key>
    ```
 
@@ -62,7 +62,7 @@ The Company Information API is a Django-based web service designed to retrieve c
 
 ## API Endpoints
 
-### Retrieve Company Information
+### Retrieve Nifty 50 Company Information
 
 - **Endpoint**: `/api/company-info/`
 - **Method**: `POST`
