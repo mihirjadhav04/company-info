@@ -9,7 +9,8 @@ The Company Information API is a Django-based web service designed to retrieve c
 - **Fetch Financial Data**: Retrieve detailed financial information for Nifty 50 companies using their stock symbols.
 - **Legal Information**: Get insights into any legal issues related to the company.
 - **Recent News**: Access the latest news articles about the company from reliable Indian news sources.
-- **Dynamic Symbol Retrieval**: Dynamically fetch stock symbols for any listed company in the Nifty 50 index.
+- **Company Symbol Mapping**: The stock symbol for a company is fetched from a predefined JSON object containing mappings of Nifty 50 companies to their stock symbols.
+- **Rate Limiting**: Rate limiting is implemented to prevent abuse and ensure fair usage of the API.
 
 ## Technologies Used
 
@@ -85,6 +86,11 @@ The Company Information API is a Django-based web service designed to retrieve c
     }
   }
   ```
+
+## Key Considerations
+
+- **Static Company Symbol Mapping**: The stock symbols for Nifty 50 companies are predefined and stored in a JSON object for direct lookup. Symbols are not fetched dynamically from external sources, ensuring quick retrieval but limiting the API to only Nifty 50 companies.
+- **Rate Limiting**: Rate limiting has been applied to prevent overuse and ensure fair usage across different users. This ensures that the service remains responsive and available under high traffic.
 
 ## Error Handling
 
